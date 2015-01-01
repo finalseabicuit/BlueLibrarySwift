@@ -14,6 +14,8 @@
 		101DD6D51A052EDE00161F0D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 101DD6D31A052EDE00161F0D /* LaunchScreen.xib */; };
 		101DD6E11A052EDE00161F0D /* BlueLibrarySwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101DD6E01A052EDE00161F0D /* BlueLibrarySwiftTests.swift */; };
 		101DD6EC1A052F0E00161F0D /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101DD6EB1A052F0E00161F0D /* HTTPClient.swift */; };
+		517BE3521A559765005EBEEB /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BE3511A559765005EBEEB /* Album.swift */; };
+		517BE3541A559A4B005EBEEB /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BE3531A559A4B005EBEEB /* AlbumView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		101DD6DF1A052EDE00161F0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		101DD6E01A052EDE00161F0D /* BlueLibrarySwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueLibrarySwiftTests.swift; sourceTree = "<group>"; };
 		101DD6EB1A052F0E00161F0D /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		517BE3511A559765005EBEEB /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		517BE3531A559A4B005EBEEB /* AlbumView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +84,10 @@
 			isa = PBXGroup;
 			children = (
 				101DD6EA1A052EE400161F0D /* API */,
+				517BE3571A559D68005EBEEB /* Model */,
+				517BE3561A559D61005EBEEB /* View */,
+				517BE3551A559D58005EBEEB /* Controller */,
 				101DD6CA1A052EDE00161F0D /* AppDelegate.swift */,
-				101DD6CC1A052EDE00161F0D /* ViewController.swift */,
 				101DD6CE1A052EDE00161F0D /* Main.storyboard */,
 				101DD6D11A052EDE00161F0D /* Images.xcassets */,
 				101DD6D31A052EDE00161F0D /* LaunchScreen.xib */,
@@ -121,6 +127,30 @@
 				101DD6EB1A052F0E00161F0D /* HTTPClient.swift */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		517BE3551A559D58005EBEEB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				101DD6CC1A052EDE00161F0D /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		517BE3561A559D61005EBEEB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				517BE3531A559A4B005EBEEB /* AlbumView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		517BE3571A559D68005EBEEB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				517BE3511A559765005EBEEB /* Album.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +256,8 @@
 				101DD6CD1A052EDE00161F0D /* ViewController.swift in Sources */,
 				101DD6CB1A052EDE00161F0D /* AppDelegate.swift in Sources */,
 				101DD6EC1A052F0E00161F0D /* HTTPClient.swift in Sources */,
+				517BE3541A559A4B005EBEEB /* AlbumView.swift in Sources */,
+				517BE3521A559765005EBEEB /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +451,7 @@
 				101DD6E61A052EDE00161F0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		101DD6E71A052EDE00161F0D /* Build configuration list for PBXNativeTarget "BlueLibrarySwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +460,7 @@
 				101DD6E91A052EDE00161F0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
