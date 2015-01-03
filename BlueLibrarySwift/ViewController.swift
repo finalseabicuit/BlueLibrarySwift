@@ -26,6 +26,7 @@ class ViewController: UIViewController {
 
 	@IBOutlet var dataTable: UITableView!
 	@IBOutlet var toolbar: UIToolbar!
+    @IBOutlet weak var scroller: HorizontalScroller!
     
     private var allAlbums = [Album]()
     private var currentAlbumData: (titles:[String], values:[String])?
@@ -46,6 +47,9 @@ class ViewController: UIViewController {
         view.addSubview(dataTable!)
         
         self.showDataForAlbum(currentAlbumIndex)
+        
+        scroller.delegate = self
+        reloadScroller()
 	}
     
     func showDataForAlbum(albumIndex: Int) {
@@ -60,6 +64,17 @@ class ViewController: UIViewController {
         }
         // we have the data we need, let's refresh our tableview
         dataTable!.reloadData()
+    }
+    
+    func reloadScroller() {
+        allAlbums = LibraryAPI.sharedInstance.getAlbums()
+        if currentAlbumIndex < 0 {
+            currentAlbumIndex = 0
+        } else if currentAlbumIndex >= allAlbums.count {
+            currentAlbumIndex = allAlbums.count - 1
+        }
+        scroller.reload()
+        showDataForAlbum(currentAlbumIndex)
     }
 
 	override func didReceiveMemoryWarning() {
@@ -95,3 +110,31 @@ extension ViewController: UITableViewDelegate {
     
 }
 
+extension ViewController: HorizontalScrollerDelegate {
+    func horizontalScrollerClickedViewAtIndex(scroller: HorizontalScroller, index: Int) {
+        let previousAlbumView = scroller.viewAtIndex(currentAlbumIndex) as AlbumView
+        previousAlbumView.highlightAlbum(didHighlightView: false)
+        
+        currentAlbumIndex = index
+        
+        let albumView = scroller.viewAtIndex(index) as AlbumView
+        albumView.highlightAlbum(didHighlightView: true)
+        
+        showDataForAlbum(index)
+    }
+    
+    func numberOfViewsForHorizontalScroller(scroller: HorizontalScroller) -> Int {
+        return allAlbums.count
+    }
+    
+    func horizontalScrollerViewAtIndex(scroller: HorizontalScroller, index: Int) -> UIView {
+        let album = allAlbums[index]
+        let albumView = AlbumView(frame: CGRectMake(0, 0, 100, 100), albumCover: album.coverUrl)
+        if currentAlbumIndex == index {
+            albumView.highlightAlbum(didHighlightView: true)
+        } else {
+            albumView.highlightAlbum(didHighlightView: false)
+        }
+        return albumView
+    }
+}
