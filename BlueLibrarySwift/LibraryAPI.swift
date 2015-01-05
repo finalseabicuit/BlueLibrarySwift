@@ -53,6 +53,10 @@ class LibraryAPI: NSObject {
         }
     }
     
+    func saveAlbums() {
+        persistencyManager.saveAlbums()
+    }
+    
     func downloadImage(notification: NSNotification) {
         let userInfo = notification.userInfo as [String:AnyObject]
         var imageView = userInfo["imageView"] as UIImageView?
